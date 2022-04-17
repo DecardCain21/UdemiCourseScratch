@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //UI
     ImageView goodsImageView;
     TextView tvPrice;
+    TextView quantityTextView;
 
 
     @Override
@@ -39,6 +40,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         inizializeData();
         createSpinner();
         //....................................
+    }
+
+    public HashMap inizializeData() {
+        goodsMap = new HashMap();
+        goodsMap.put("guitar", 500);
+        goodsMap.put("drums", 1500);
+        goodsMap.put("keyboard", 1000);
+        return (HashMap) goodsMap;
     }
 
     public void createSpinner() {
@@ -52,26 +61,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(spinnerAdapter);
     }
 
-    public HashMap inizializeData() {
-        goodsMap = new HashMap();
-        goodsMap.put("guitar", 500);
-        goodsMap.put("drums", 1500);
-        goodsMap.put("keyboard", 1000);
-        return (HashMap) goodsMap;
-    }
 
     public void increaseQuantity(View view) {
         quantity += 1;
-        TextView quantityTextView = findViewById(R.id.quantityTextView);
+        quantityTextView = findViewById(R.id.quantityTextView);
         quantityTextView.setText("" + quantity);
         tvPrice.setText("" + quantity * price);
     }
 
-    public void addToCart(View view) {
-    }
-
     public void decreaseQuantity(View view) {
-        TextView quantityTextView = findViewById(R.id.quantityTextView);
+        quantityTextView = findViewById(R.id.quantityTextView);
         if (quantity > 0) {
             quantity -= 1;
             quantityTextView.setText("" + quantity);
@@ -80,13 +79,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
+    public void addToCart(View view) {
+    }
+
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         goodsName = spinner.getSelectedItem().toString();
         price = (int) goodsMap.get(goodsName);//Апкаст?
         tvPrice = findViewById(R.id.priceTextView);
         tvPrice.setText("" + quantity * price);
-
         //...................................................
         goodsImageView = findViewById(R.id.goodsImageView);
         switch (goodsName) {
