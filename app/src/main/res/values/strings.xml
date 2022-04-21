@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">UdemiCourseScratch</string>
     <string name="hintUserHelp">shit</string>
+    <string name="keyIntent">userNameForIntent</string>
 </resources>

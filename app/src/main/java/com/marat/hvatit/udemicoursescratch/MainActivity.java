@@ -3,11 +3,13 @@ package com.marat.hvatit.udemicoursescratch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,12 +33,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ImageView goodsImageView;
     TextView tvPrice;
     TextView quantityTextView;
+    EditText userNameEditText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        userNameEditText = findViewById(R.id.nameEditText);
         inizializeData();
         createSpinner();
         //....................................
@@ -80,6 +84,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void addToCart(View view) {
+        Order order = new Order();
+        order.userName = userNameEditText.getText().toString();
+        order.orderGoodsName = goodsName;
+        order.orderQuantity = quantity;
+        order.orderPrice = quantity * price;
+
+        Intent orderIntent = new Intent(MainActivity.this,BasketActivity.class);
+        orderIntent.putExtra(getString(R.string.keyIntent),order.userName);
+        startActivity(orderIntent);
     }
 
 
