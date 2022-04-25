@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:innerRadiusRatio="99"
-    android:shape="ring"
-    android:thickness="40dp"
-    android:useLevel="false">
-
-    <gradient
-        android:centerColor="#5d8fbf"
-        android:endColor="@color/purple_500"
-        android:startColor="@color/white" />
-
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:innerRadiusRatio="99"
+            android:shape="ring"
+            android:thickness="40dp"
+            android:useLevel="false">
+            <gradient android:centerColor="#5d8fbf" android:endColor="@color/purple_500" android:startColor="@color/white" />
+        </shape>
+    </item>
+</selector>
 

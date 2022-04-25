@@ -9,19 +9,54 @@
     tools:context=".BasketActivity">
 
     <TextView
-        android:id="@+id/orderTextView"
+        android:id="@+id/orderUserTextView"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:text="Submit Order"
-        android:textColor="@android:color/white"
-        android:background="@color/cardview_dark_background"
-        android:layout_marginTop="20dp"
-        android:onClick="submitOrder"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/orderQuantityBasket"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/imageViewBasket"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/productone" />
+
+        <TextView
+            android:id="@+id/tvPriceBasket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="PRICE:"
+            android:textColor="#F3AC0895" />
+
+        <TextView
+            android:id="@+id/tvPayBasket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="0"
+            android:textColor="#F3AC0895" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/cardview_dark_background"
+        android:onClick="submitOrder"
+        android:text="Submit Order"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

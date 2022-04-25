@@ -89,9 +89,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         order.orderGoodsName = goodsName;
         order.orderQuantity = quantity;
         order.orderPrice = quantity * price;
-
-        Intent orderIntent = new Intent(MainActivity.this,BasketActivity.class);
-        orderIntent.putExtra(getString(R.string.keyIntent),order.userName);
+        //Intent читать,serializible?
+        Intent orderIntent = new Intent(MainActivity.this, BasketActivity.class);
+        orderIntent.putExtra(Order.class.getSimpleName(),order);
+        //orderIntent.putExtra(getString(R.string.keyIntent), order.userName);
         startActivity(orderIntent);
     }
 
